@@ -11,20 +11,6 @@ begin
 	using Downloads
 end
 
-# ╔═╡ b94943b5-3377-4139-b130-1ea58a31d0a1
-md"""
-# TRABAJO ESTADÍSTICO
-**Autores:** 
-
-Paula Ávila
-
-Marilyn Mateus
-
-**Fecha:** 20 de Mayo del 2026
-
-**Universidad:** USTA
-"""
-
 # ╔═╡ 96b88ff7-9e05-4090-8a4e-474131f302ad
 url = "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-07/coffee_ratings.csv"
 
@@ -36,9 +22,6 @@ df = CSV.read("coffee_ratings.csv", DataFrame)
 
 # ╔═╡ a87e2edf-a78c-40a9-86c0-8af6b87de400
 first(df, 10)
-
-# ╔═╡ 4f5a9055-0a92-4bb7-9631-66287b3dc7ae
-
 
 # ╔═╡ 7ce47789-4bad-4a76-8281-07d9b98aa6db
 
@@ -419,13 +402,11 @@ version = "1.64.0+1"
 """
 
 # ╔═╡ Cell order:
-# ╠═b94943b5-3377-4139-b130-1ea58a31d0a1
 # ╠═227e93c0-5563-11f1-b720-87d0cae8072d
 # ╠═96b88ff7-9e05-4090-8a4e-474131f302ad
 # ╠═f6aa2fce-dfa5-445f-bc36-a0e0abb4be02
 # ╠═a361fe22-839f-4109-97bd-0fe370f4fb00
 # ╠═a87e2edf-a78c-40a9-86c0-8af6b87de400
-# ╠═4f5a9055-0a92-4bb7-9631-66287b3dc7ae
 # ╠═7ce47789-4bad-4a76-8281-07d9b98aa6db
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

@@ -4,12 +4,11 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ 840e4a98-8c42-4c98-bb3f-953d60f3e427
-using Statistics
-
-# ╔═╡ c2d9a4c0-5628-11f1-bd96-611d4e388fd9
+# ╔═╡ 227e93c0-5563-11f1-b720-87d0cae8072d
 begin
 	using CSV
+	using Statistics
+	using StatsBase
 	using DataFrames
 	using Downloads
 end
@@ -27,18 +26,6 @@ Marilyn Mateus
 
 **Universidad:** USTA
 """
-
-# ╔═╡ 227e93c0-5563-11f1-b720-87d0cae8072d
-begin
-	using CSV
-	using Statistics
-	using StatsBase
-	using DataFrames
-	using StatsPlots
-	using Downloads
-end
-
->>>>>>> daff1e15975601d9874f386e93b75cc90e99bfb
 
 # ╔═╡ 96b88ff7-9e05-4090-8a4e-474131f302ad
 url = "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-07/coffee_ratings.csv"
@@ -59,20 +46,6 @@ md"""
 # Tabla de definición de variables 
 """
 
-
-<<<<<<< HEA
-
-# ╔═╡ 4f2dec43-9141-4581-9d76-1e735e6adb20
-md"""
-## Medidas de dispersión
-
-Las medidas de dispersión permiten evaluar qué tan alejados o concentrados se encuentran los datos respecto a una medida central, generalmente la media. Estas medidas ayudan a comprender la variabilidad del conjunto de datos y el grado de homogeneidad o heterogeneidad presente en los puntajes analizados.
-"""
-
-# ╔═╡ ed5c804d-3791-4676-afa5-f46776357cf4
-md"""
-Antes de calcular las medidas estadísticas, se crea la variable **puntajes**, que almacena los valores del puntaje total de calidad del café (`total_cup_points`), excluyendo datos faltantes para garantizar un análisis correcto.
-======
 
 # ╔═╡ 4f5a9055-0a92-4bb7-9631-66287b3dc7ae
 variables = DataFrame(
@@ -243,385 +216,11 @@ CV = 2.69 / 82.15 × 100 = 3.27%. Como es **< 10%, los datos son muy homogéneos
 
 """
 
-# ╔═╡ 7aaa6a5a-db2c-4c76-bdeb-2c9b2b32977a
-md"""
-## Medidas de posición
-"""
-
-# ╔═╡ fae065c2-3bf6-4457-8522-2ea2d605a7df
-md"""
-Las medidas de posición permiten identificar la ubicación relativa de los datos dentro de una distribución estadística. Estas medidas dividen el conjunto de observaciones en partes proporcionales, facilitando el análisis de cómo se distribuyen los puntajes de calidad del café y permitiendo reconocer valores representativos dentro del conjunto de datos.
-"""
-
 # ╔═╡ 203bc6e2-52b3-41bc-a7ec-2d5465e3ecba
-begin
 
-    # PREPARACIÓN DE DATOS
-    md"""
-    ## Preparación de los datos
-    """
-
-    md"""
-    Antes de calcular las medidas estadísticas, se crea la variable *puntajes*, que almacena únicamente los valores correspondientes al puntaje total de calidad del café (total_cup_points). Para garantizar un análisis correcto, se excluyen los valores faltantes.
-    """
-end
-
-# ╔═╡ 9c0af810-49a7-4fe5-b394-f4d24d54ba14
-md"""
-    ### Cuartil 1 (Q1)
-    """
-
-
-# ╔═╡ 876077a7-9650-4b92-b7a2-63e3c54c1a56
-md"""
-    ### Cuartil 2 (Q2 - Mediana)
-    """
-
-# ╔═╡ d36ee750-8875-40d5-a719-7ed0d0bf9d1a
-md"""
-    ### Cuartil 3 (Q3)
-    """
-
-# ╔═╡ 4d92a9cc-8012-4ac8-a086-608fc06bae3c
-md"""
-    ### Decil 9 (D9)
-    """
-
-# ╔═╡ 5740e568-fcea-4f22-bb36-451bbe28b2ed
-md"""
-    ### Percentil 95 (P95)
-    """
-
-# ╔═╡ 179623d2-0661-48b4-baa3-d32e07704a95
-md"""
-## Medidas de forma
-"""
-
-# ╔═╡ 4065c088-7333-46a3-9326-431c1d10b1ad
-begin
-
-    md"""
-    ## Forma de la distribución
-    """
-
-    md"""
-    Las medidas de forma de la distribución permiten analizar la estructura general de los datos, evaluando aspectos como la simetría, el grado de concentración alrededor de la media y la presencia de valores atípicos. Estas medidas permiten comprender con mayor profundidad el comportamiento estadístico de los puntajes de calidad del café.
-    """
-end
-
-# ╔═╡ 939d7670-e30b-4d4f-a6ef-d7dbb777b0d9
-md"""
-    ### Asimetría
-    """
-
-# ╔═╡ c69b4a9d-bf5c-4554-b889-bfad2fbdeb92
-md"""
-    ### Curtosis
-    """
-
-# ╔═╡ d8fd09e6-92fb-40d4-bdeb-bea0d05bc1cb
-md"""
-    ### Valores atípicos
-    """
-
-# ╔═╡ 07982cf8-14ee-4afc-91b1-1d4837b4f1c8
-md"""
-    *Interpretación:*  
-    El diagrama de caja permite identificar observaciones extremas alejadas del comportamiento general de los datos. Estos valores atípicos representan cafés con puntajes significativamente diferentes respecto al resto del conjunto analizado.
-    """
-
-
-# ╔═╡ da42fea7-182b-4397-aac0-c7d0a0431f76
-begin
-
-	md"""
-	## Visualizaciones
-	"""
-
-	md"""
-	Las visualizaciones estadísticas permiten representar gráficamente el comportamiento de los datos, facilitando la identificación de patrones, dispersión, concentración, relaciones entre variables y posibles valores atípicos dentro del conjunto de puntajes de calidad del café.
-    """
-end
-
-
-# ╔═╡ 7790ed1f-d0af-4867-a8b6-565b9d6b1aed
-md"""
-    ### Histograma
-    """
-
-# ╔═╡ e57a8e9d-4e78-4608-8d6e-daee2805298c
-md"""
-    *Interpretación:*  
-    El histograma permite observar la forma general de la distribución de los puntajes de calidad del café, identificando concentración de datos, dispersión y posible comportamiento similar a una distribución normal.
-    """
-
-# ╔═╡ 92c30f03-4113-461a-b35a-3e0f7aeecacc
-md"""
-    ### Boxplot-Diagrama de Caja
-    """
-
-# ╔═╡ 7b2bd41b-b19c-49b4-953e-c66209101852
- md"""
-    *Interpretación:*  
-    El diagrama de caja permite visualizar la mediana, los cuartiles, la dispersión general y la presencia de valores atípicos dentro del conjunto de datos analizado.
-    """
-
-# ╔═╡ d7be6ae2-93a9-4c93-9ef6-be531bbce794
-md"""
-    ### Scatterplot: Aroma vs Puntaje Total
-    """
-
-# ╔═╡ 90ec9a3f-b3ba-4f1d-88ce-69498a3e79f2
- scatter(
-        df.aroma,
-        df.total_cup_points,
-        title="Relación entre aroma y puntaje total",
-        xlabel="Aroma",
-        ylabel="Puntaje total",
-        legend=false
-    )
-
-# ╔═╡ 95f123ef-754d-480c-9839-78d565b42bc5
-md"""
-    *Interpretación:*  
-    El gráfico de dispersión permite analizar visualmente la relación entre el aroma y el puntaje total del café, permitiendo identificar si existe una tendencia positiva, negativa o ausencia de relación entre ambas variables.
-    """
-
-# ╔═╡ 71e8d200-3ee4-4fee-bb4c-543cd4ed90a7
-md"""
-    ### Gráfico de barras por país
-    """
-
-
-# ╔═╡ 1f57797a-4835-4d95-8e64-b0b478c3e6ee
-begin
-    top_paises = combine(groupby(df, :country_of_origin), nrow => :cantidad)
-    top_paises = sort(top_paises, :cantidad, rev=true)[1:10, :]
-    
-    bar(
-        top_paises.country_of_origin,
-        top_paises.cantidad,
-        title="Cantidad de cafés evaluados por país",
-        xlabel="País",
-        ylabel="Frecuencia",
-        legend=false,
-        xrotation=45
-    )
-end
-
-# ╔═╡ d0e6e86b-a2c8-428c-acf7-41c6688c8e9f
-md"""
-    *Interpretación:*  
-    El gráfico de barras permite comparar la cantidad de observaciones por país de origen, identificando qué países tienen mayor representación dentro del conjunto de datos analizado.
-    """
-
-# ╔═╡ b3eb56a4-f26d-46f9-ad47-04307c342825
-md"""
-    ### Gráfico de densidad
-    """
-
-# ╔═╡ e6f49e7a-8821-43ca-b58a-69744d96dcb1
-md"""
-    *Interpretación:*   
-    El gráfico de barras permite comparar la cantidad de observaciones por país de origen, identificando qué países tienen mayor representación dentro del conjunto de datos analizado.
-    """
-
-# ╔═╡ 5afc7194-ac15-4540-ab7d-173747f57c5d
-md"""
-    ### Intervarianza
-    """
-
-# ╔═╡ af29cf8d-5049-4a90-ba48-e3603c9eeb34
-begin
-    datos_anova = dropmissing(df, [:country_of_origin, :total_cup_points])
-        grupos = groupby(datos_anova, :country_of_origin)
-        media_general = mean(datos_anova.total_cup_points)
-    
-        intervarianza = sum(
-            nrow(g) * (mean(g.total_cup_points) - media_general)^2
-            for g in grupos
-        ) / (length(grupos) - 1)
-end
-
-# ╔═╡ 84a93e59-4574-40c1-a25e-9987e0ede31e
-md"""
-    *Resultado:* $(intervarianza)
-
-    *Interpretación:*  
-    La intervarianza obtenida representa la variabilidad existente entre los promedios de calidad del café según el país de origen.
-    """
-
-# ╔═╡ 80bdd05e-548f-4cd7-b00f-2c13a1bb2604
-md"""
-    ### Intravarianza
-    """
-
-# ╔═╡ 2bc94540-0c3f-4efb-a32e-8ce81008405f
-intravarianza = sum(
-        sum((g.total_cup_points .- mean(g.total_cup_points)).^2)
-        for g in grupos
-    ) / (nrow(datos_anova) - length(grupos))
-
-# ╔═╡ e4be2e93-8a0e-4d50-8800-119d6a5ae045
-md"""
-    *Resultado:* $(intravarianza)
-
-    *Interpretación:*  
-    La intravarianza obtenida refleja la dispersión de los puntajes dentro de cada país analizado.
-    """
-
-# ╔═╡ f0dd29ad-9a1e-447c-af50-9a982102f12a
-Q3 = Statistics.quantile(puntajes, 0.75)
-
-# ╔═╡ 5ed9491b-8abf-46cd-a2b5-1414fb4c3da7
-md"""
-    *Resultado:* $(Q3)
-
-    *Interpretación:*  
-    El tercer cuartil indica el valor por debajo del cual se encuentra el 75% de los puntajes, mostrando el límite superior del comportamiento típico de los datos.
-    """
-
-# ╔═╡ d709dcf5-493f-4b45-aa8b-0475fd4a3a45
-D9 = Statistics.quantile(puntajes, 0.90)
-
-# ╔═╡ 0b3c49f3-c36a-4e62-9ad5-35d0a55eb8c9
-md"""
-    *Resultado:* $(D9)
-
-    *Interpretación:*  
-    El noveno decil representa el valor por debajo del cual se encuentra el 90% de los puntajes, lo que significa que solo el 10% de los cafés evaluados superan esta calificación.
-    """
-
-# ╔═╡ 4f2bb7c0-4ffa-4977-af1b-3bdd805068e0
- P95 = Statistics.quantile(puntajes, 0.95)
-
-
-# ╔═╡ affb4dc2-77a7-4fd2-bbba-488d6ca68200
-md"""
-    *Resultado:* $(P95)
-
-    *Interpretación:*  
-    El percentil 95 indica el valor por debajo del cual se encuentra el 95% de los cafés evaluados, identificando el grupo con mejor desempeño dentro del conjunto de datos.
-    """
-
-# ╔═╡ 751aeadd-2d6d-4fa7-850c-8162e291b6d9
-asimetria = skewness(puntajes)
-
-
-# ╔═╡ aec34622-adb0-4b38-a8c5-c57e5c03aaaa
-md"""
-    *Resultado:* $(asimetria)
-
-    *Interpretación:*  
-    La asimetría permite identificar si la distribución de los puntajes es simétrica o presenta inclinación hacia alguno de sus extremos. Un valor cercano a cero indica una distribución equilibrada; valores positivos sugieren una cola hacia la derecha y valores negativos una cola hacia la izquierda.
-    """
-
-# ╔═╡ 7c1d0ba1-2e46-4e6a-8aa0-884581760b46
-curtosis_valor = kurtosis(puntajes)
-
-# ╔═╡ 87e0b421-4506-4652-b149-82e7914662e5
-md"""
-    *Resultado:* $(curtosis_valor)
-
-    *Interpretación:*  
-    La curtosis mide el grado de concentración de los datos alrededor de la media. Valores cercanos a cero indican una distribución similar a la normal; valores positivos reflejan una mayor concentración central y valores negativos una distribución más dispersa.
-    """
-
-# ╔═╡ b3e46d7d-deef-4ea9-978a-1df9c48f2cba
-boxplot(
-        puntajes,
-        title="Detección de valores atípicos en los puntajes del café",
-        ylabel="Puntaje total",
-        legend=false
-    )
-
-
-# ╔═╡ 66aa8ecb-ba40-48e2-b42b-f83b31dfe5c2
- histogram(
-        puntajes,
-        bins=30,
-        title="Distribución de puntajes del café",
-        xlabel="Puntaje total",
-        ylabel="Frecuencia",
-        legend=false
-    )
-
-# ╔═╡ f381cf1a-074c-4aa5-98a2-457fba965754
-StatsPlots.boxplot(
-        puntajes,
-        title="Distribución y valores atípicos",
-        ylabel="Puntaje total",
-        legend=false
-    )
-
-
-# ╔═╡ 56428798-e084-4a14-9d32-bb68b24abf5c
-density(
-    puntajes,
-    title="Densidad de los puntajes del café",
-    xlabel="Puntaje total",
-    ylabel="Densidad",
-    legend=false
-)
-
-# ╔═╡ 9138876f-9802-4348-a630-4eede374ea85
-md"""
-    *Resultado:* $(Q1)
-
-    *Interpretación:*  
-    El primer cuartil representa el valor por debajo del cual se encuentra el 25% de los puntajes totales de calidad del café, permitiendo identificar el límite inferior del comportamiento general de los datos.
-    """
-
-# ╔═╡ 7959c8ae-69af-4eea-9807-5e825298565e
-md"""
-### Cuartil 1 (Q1)
-
-**Resultado:** $(Q1)
-
-**Interpretación:**  
-El primer cuartil representa el valor por debajo del cual se encuentra el 25% de los puntajes totales de calidad del café. Esto significa que una cuarta parte de los cafés evaluados obtuvieron un puntaje igual o inferior a este valor, permitiendo identificar el límite inferior del comportamiento general de la distribución.
-"""
-
-# ╔═╡ 1996ef19-b17c-41de-8455-7437cfe7e640
-md"""
-    *Resultado:* $(Q2)
-
-    *Interpretación:*  
-    El segundo cuartil corresponde a la mediana, indicando que el 50% de los cafés evaluados presentan puntajes inferiores a este valor y el otro 50% superiores.
-    """
-
-# ╔═╡ 954ae7f5-10c8-4dca-829a-b502982cefc5
-
-
-# ╔═╡ 5a8bf30c-3529-41d1-a343-d17b5183648a
-# ╠═╡ disabled = true
-#=╠═╡
-begin
-    using Statistics
-    using StatsBase
-    using DataFrames
-    using Plots
-    using StatsPlots
-end
-  ╠═╡ =#
-
-# ╔═╡ 657b9860-aded-42d9-8e89-b02b847021ba
-Q1 = Statistics.quantile(puntajes, 0.25)
-
-# ╔═╡ 68100664-160b-4dca-8860-62d737268472
-puntajes = collect(skipmissing(df.total_cup_points))
-
-# ╔═╡ a765604b-d166-44b1-9755-ca764c834109
- Q2 = Statistics.quantile(puntajes, 0.50)
-
-# ╔═╡ fb91a7cc-fcb5-4fb5-a714-35cef32579f6
-Q2 = Statistics.quantile(puntajes, 0.50)
 
 # ╔═╡ 0686f9f9-839f-4e01-bfb9-adb4d15e1386
- puntajes = collect(skipmissing(df.total_cup_points))
 
-# ╔═╡ f10de084-c8f3-40dc-af5c-c62b7f31c29d
-Q1 = Statistics.quantile(puntajes, 0.25)
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -630,10 +229,12 @@ CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Downloads = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
 Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
 CSV = "~0.10.16"
 DataFrames = "~1.8.2"
+StatsBase = "~0.34.10"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -642,7 +243,13 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.12.6"
 manifest_format = "2.0"
-project_hash = "a7b46af976bf32504e7bb71f7bc2447952a9ad41"
+project_hash = "d890d3311760a68d0ff755623a50dd42042ce7b7"
+
+[[deps.AliasTables]]
+deps = ["PtrArrays", "Random"]
+git-tree-sha1 = "9876e1e164b144ca45e9e3198d0b689cadfed9ff"
+uuid = "66dad0bd-aa9a-41b7-9441-69ab47430ed8"
+version = "1.1.3"
 
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
@@ -715,6 +322,11 @@ deps = ["Printf"]
 uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
 version = "1.11.0"
 
+[[deps.DocStringExtensions]]
+git-tree-sha1 = "7442a5dfe1ebb773c29cc2962a8980f47221d76c"
+uuid = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
+version = "0.9.5"
+
 [[deps.Downloads]]
 deps = ["ArgTools", "FileWatching", "LibCURL", "NetworkOptions"]
 uuid = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
@@ -766,6 +378,11 @@ git-tree-sha1 = "6da3c4316095de0f5ee2ebd875df8721e7e0bdbe"
 uuid = "41ab1584-1d38-5bbf-9106-f11c6c58b48f"
 version = "1.3.1"
 
+[[deps.IrrationalConstants]]
+git-tree-sha1 = "b2d91fe939cae05960e760110b328288867b5758"
+uuid = "92d709cd-6900-40b7-9082-c6be49f344b6"
+version = "0.2.6"
+
 [[deps.IteratorInterfaceExtensions]]
 git-tree-sha1 = "a3f24677c21f5bbe9d2a714f95dcd58337fb2856"
 uuid = "82899510-4779-5014-852e-03e436cf321d"
@@ -804,6 +421,22 @@ version = "1.11.0"
 deps = ["Libdl", "OpenBLAS_jll", "libblastrampoline_jll"]
 uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 version = "1.12.0"
+
+[[deps.LogExpFunctions]]
+deps = ["DocStringExtensions", "IrrationalConstants", "LinearAlgebra"]
+git-tree-sha1 = "13ca9e2586b89836fd20cccf56e57e2b9ae7f38f"
+uuid = "2ab3a3ac-af41-5b50-aa03-7779005ae688"
+version = "0.3.29"
+
+    [deps.LogExpFunctions.extensions]
+    LogExpFunctionsChainRulesCoreExt = "ChainRulesCore"
+    LogExpFunctionsChangesOfVariablesExt = "ChangesOfVariables"
+    LogExpFunctionsInverseFunctionsExt = "InverseFunctions"
+
+    [deps.LogExpFunctions.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    ChangesOfVariables = "9e997f8a-9a97-42d5-a9f1-ce6bfc15e2c0"
+    InverseFunctions = "3587e190-3f89-42d0-90ee-14403ec27112"
 
 [[deps.Markdown]]
 deps = ["Base64", "JuliaSyntaxHighlighting", "StyledStrings"]
@@ -884,6 +517,11 @@ deps = ["Unicode"]
 uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 version = "1.11.0"
 
+[[deps.PtrArrays]]
+git-tree-sha1 = "4fbbafbc6251b883f4d2705356f3641f3652a7fe"
+uuid = "43287f4e-b6f4-7ad1-bb20-aadabca52c3d"
+version = "1.4.0"
+
 [[deps.REPL]]
 deps = ["InteractiveUtils", "JuliaSyntaxHighlighting", "Markdown", "Sockets", "StyledStrings", "Unicode"]
 uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
@@ -909,6 +547,10 @@ git-tree-sha1 = "084c47c7c5ce5cfecefa0a98dff69eb3646b5a80"
 uuid = "91c51154-3ec4-41a3-a24f-3f23e20d615c"
 version = "1.4.10"
 
+[[deps.Serialization]]
+uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
+version = "1.11.0"
+
 [[deps.Sockets]]
 uuid = "6462fe0b-24de-5631-8697-dd941f90decc"
 version = "1.11.0"
@@ -919,17 +561,32 @@ git-tree-sha1 = "64d974c2e6fdf07f8155b5b2ca2ffa9069b608d9"
 uuid = "a2af1166-a08f-5f64-846c-94a0d3cef48c"
 version = "1.2.2"
 
+[[deps.SparseArrays]]
+deps = ["Libdl", "LinearAlgebra", "Random", "Serialization", "SuiteSparse_jll"]
+uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+version = "1.12.0"
+
 [[deps.Statistics]]
 deps = ["LinearAlgebra"]
 git-tree-sha1 = "ae3bb1eb3bba077cd276bc5cfc337cc65c3075c0"
 uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 version = "1.11.1"
+weakdeps = ["SparseArrays"]
 
     [deps.Statistics.extensions]
     SparseArraysExt = ["SparseArrays"]
 
-    [deps.Statistics.weakdeps]
-    SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+[[deps.StatsAPI]]
+deps = ["LinearAlgebra"]
+git-tree-sha1 = "178ed29fd5b2a2cfc3bd31c13375ae925623ff36"
+uuid = "82ae8749-77ed-4fe6-ae5f-f523153014b0"
+version = "1.8.0"
+
+[[deps.StatsBase]]
+deps = ["AliasTables", "DataAPI", "DataStructures", "IrrationalConstants", "LinearAlgebra", "LogExpFunctions", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "StatsAPI"]
+git-tree-sha1 = "aceda6f4e598d331548e04cc6b2124a6148138e3"
+uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+version = "0.34.10"
 
 [[deps.StringManipulation]]
 deps = ["PrecompileTools"]
@@ -940,6 +597,11 @@ version = "0.4.4"
 [[deps.StyledStrings]]
 uuid = "f489334b-da3d-4c2e-b8f0-e476e12c162b"
 version = "1.11.0"
+
+[[deps.SuiteSparse_jll]]
+deps = ["Artifacts", "Libdl", "libblastrampoline_jll"]
+uuid = "bea87d4a-7f5b-5778-9afe-8cc45184846c"
+version = "7.8.3+2"
 
 [[deps.TOML]]
 deps = ["Dates"]
@@ -1003,79 +665,19 @@ version = "1.64.0+1"
 # ╟─b94943b5-3377-4139-b130-1ea58a31d0a1
 # ╠═227e93c0-5563-11f1-b720-87d0cae8072d
 # ╠═96b88ff7-9e05-4090-8a4e-474131f302ad
-# ╠═f6aa2fce-dfa5-445f-bc36-a0e0abb4be02
-# ╠═a361fe22-839f-4109-97bd-0fe370f4fb00
-# ╠═a87e2edf-a78c-40a9-86c0-8af6b87de400
-# ╠═fdfbdcd8-47a9-4997-af87-a7e8f6322935
-# ╠═4f2dec43-9141-4581-9d76-1e735e6adb20
-# ╠═ed5c804d-3791-4676-afa5-f46776357cf4
-# ╠═4f5a9055-0a92-4bb7-9631-66287b3dc7ae
-# ╠═7ce47789-4bad-4a76-8281-07d9b98aa6db
-# ╠═76416780-2b92-4d85-bcba-8d87b2bf9e75
-# ╠═694e3dab-1817-497a-91ac-c4575c879c2a
-# ╠═ab701fc2-849a-40a5-af46-cd59d1e2d93f
-# ╠═3dc07da7-d1b3-4a5f-a3ac-d0c220982e88
-# ╠═7f8bea0a-6e02-4ad3-a36d-fea145ab91a5
-# ╠═12d1fcc1-9062-4e23-9e99-06f2bbae16f7
-# ╠═7aaa6a5a-db2c-4c76-bdeb-2c9b2b32977a
-# ╠═fae065c2-3bf6-4457-8522-2ea2d605a7df
+# ╟─f6aa2fce-dfa5-445f-bc36-a0e0abb4be02
+# ╟─a361fe22-839f-4109-97bd-0fe370f4fb00
+# ╟─a87e2edf-a78c-40a9-86c0-8af6b87de400
+# ╟─fdfbdcd8-47a9-4997-af87-a7e8f6322935
+# ╟─4f5a9055-0a92-4bb7-9631-66287b3dc7ae
+# ╟─7ce47789-4bad-4a76-8281-07d9b98aa6db
+# ╟─76416780-2b92-4d85-bcba-8d87b2bf9e75
+# ╟─694e3dab-1817-497a-91ac-c4575c879c2a
+# ╟─ab701fc2-849a-40a5-af46-cd59d1e2d93f
+# ╟─3dc07da7-d1b3-4a5f-a3ac-d0c220982e88
+# ╟─7f8bea0a-6e02-4ad3-a36d-fea145ab91a5
+# ╟─12d1fcc1-9062-4e23-9e99-06f2bbae16f7
 # ╠═203bc6e2-52b3-41bc-a7ec-2d5465e3ecba
 # ╠═0686f9f9-839f-4e01-bfb9-adb4d15e1386
-# ╠═9c0af810-49a7-4fe5-b394-f4d24d54ba14
-# ╠═657b9860-aded-42d9-8e89-b02b847021ba
-# ╠═9138876f-9802-4348-a630-4eede374ea85
-# ╠═876077a7-9650-4b92-b7a2-63e3c54c1a56
-# ╠═a765604b-d166-44b1-9755-ca764c834109
-# ╠═1996ef19-b17c-41de-8455-7437cfe7e640
-# ╠═d36ee750-8875-40d5-a719-7ed0d0bf9d1a
-# ╠═f0dd29ad-9a1e-447c-af50-9a982102f12a
-# ╠═5ed9491b-8abf-46cd-a2b5-1414fb4c3da7
-# ╠═4d92a9cc-8012-4ac8-a086-608fc06bae3c
-# ╠═d709dcf5-493f-4b45-aa8b-0475fd4a3a45
-# ╠═0b3c49f3-c36a-4e62-9ad5-35d0a55eb8c9
-# ╠═5740e568-fcea-4f22-bb36-451bbe28b2ed
-# ╠═4f2bb7c0-4ffa-4977-af1b-3bdd805068e0
-# ╠═affb4dc2-77a7-4fd2-bbba-488d6ca68200
-# ╠═179623d2-0661-48b4-baa3-d32e07704a95
-# ╠═4065c088-7333-46a3-9326-431c1d10b1ad
-# ╠═939d7670-e30b-4d4f-a6ef-d7dbb777b0d9
-# ╠═751aeadd-2d6d-4fa7-850c-8162e291b6d9
-# ╠═aec34622-adb0-4b38-a8c5-c57e5c03aaaa
-# ╠═c69b4a9d-bf5c-4554-b889-bfad2fbdeb92
-# ╠═7c1d0ba1-2e46-4e6a-8aa0-884581760b46
-# ╠═87e0b421-4506-4652-b149-82e7914662e5
-# ╠═d8fd09e6-92fb-40d4-bdeb-bea0d05bc1cb
-# ╠═b3e46d7d-deef-4ea9-978a-1df9c48f2cba
-# ╠═07982cf8-14ee-4afc-91b1-1d4837b4f1c8
-# ╠═da42fea7-182b-4397-aac0-c7d0a0431f76
-# ╠═7790ed1f-d0af-4867-a8b6-565b9d6b1aed
-# ╠═66aa8ecb-ba40-48e2-b42b-f83b31dfe5c2
-# ╠═e57a8e9d-4e78-4608-8d6e-daee2805298c
-# ╠═92c30f03-4113-461a-b35a-3e0f7aeecacc
-# ╠═f381cf1a-074c-4aa5-98a2-457fba965754
-# ╠═7b2bd41b-b19c-49b4-953e-c66209101852
-# ╠═d7be6ae2-93a9-4c93-9ef6-be531bbce794
-# ╠═90ec9a3f-b3ba-4f1d-88ce-69498a3e79f2
-# ╠═95f123ef-754d-480c-9839-78d565b42bc5
-# ╠═71e8d200-3ee4-4fee-bb4c-543cd4ed90a7
-# ╠═1f57797a-4835-4d95-8e64-b0b478c3e6ee
-# ╠═d0e6e86b-a2c8-428c-acf7-41c6688c8e9f
-# ╠═b3eb56a4-f26d-46f9-ad47-04307c342825
-# ╠═56428798-e084-4a14-9d32-bb68b24abf5c
-# ╠═e6f49e7a-8821-43ca-b58a-69744d96dcb1
-# ╠═5afc7194-ac15-4540-ab7d-173747f57c5d
-# ╠═af29cf8d-5049-4a90-ba48-e3603c9eeb34
-# ╠═84a93e59-4574-40c1-a25e-9987e0ede31e
-# ╠═80bdd05e-548f-4cd7-b00f-2c13a1bb2604
-# ╠═2bc94540-0c3f-4efb-a32e-8ce81008405f
-# ╠═e4be2e93-8a0e-4d50-8800-119d6a5ae045
-# ╠═68100664-160b-4dca-8860-62d737268472
-# ╠═f10de084-c8f3-40dc-af5c-c62b7f31c29d
-# ╠═7959c8ae-69af-4eea-9807-5e825298565e
-# ╠═fb91a7cc-fcb5-4fb5-a714-35cef32579f6
-# ╠═954ae7f5-10c8-4dca-829a-b502982cefc5
-# ╠═840e4a98-8c42-4c98-bb3f-953d60f3e427
-# ╠═c2d9a4c0-5628-11f1-bd96-611d4e388fd9
-# ╠═5a8bf30c-3529-41d1-a343-d17b5183648a
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
